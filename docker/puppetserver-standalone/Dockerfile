@@ -16,6 +16,7 @@ LABEL org.label-schema.maintainer="Puppet Release Team <release@puppet.com>" \
       org.label-schema.name="Puppet Server (No PuppetDB)" \
       org.label-schema.license="Apache-2.0" \
       org.label-schema.version="$PUPPET_SERVER_VERSION" \
+      org.label-schema.usage="/usr/share/doc/usage" \
       org.label-schema.vcs-url="https://github.com/puppetlabs/puppetserver" \
       org.label-schema.vcs-ref="$vcs_ref" \
       org.label-schema.build-date="$build_date" \
@@ -56,4 +57,5 @@ COPY healthcheck.sh /
 RUN chmod +x /healthcheck.sh
 HEALTHCHECK --interval=10s --timeout=10s --retries=90 CMD ["/healthcheck.sh"]
 
+COPY README.md /usr/share/doc/usage/README-puppetserver-standalone.md
 COPY Dockerfile /
